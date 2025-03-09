@@ -4,27 +4,26 @@ public class Test41 {
 
     public static void main(String[] args) {
         /*
-         * 순서쌍의 개수
+         * 암호해독
          *
          * 문제 설명
-         * 순서쌍이란 두 개의 숫자를 순서를 정하여 짝지어 나타낸 쌍으로 (a, b)로 표기합니다.
-         * 자연수 n이 매개변수로 주어질 때 두 숫자의 곱이 n인 자연수 순서쌍의 개수를 return하도록 solution 함수를 완성해주세요.
+         * 군 전략가 머쓱이는 전쟁 중 적군이 다음과 같은 암호 체계를 사용한다는 것을 알아냈습니다.
+         * 암호화된 문자열 cipher를 주고받습니다.
+         * 그 문자열에서 code의 배수 번째 글자만 진짜 암호입니다.
+         * 문자열 cipher와 정수 code가 매개변수로 주어질 때 해독된 암호 문자열을 return하도록 solution 함수를 완성해주세요.
          *
          * 입출력 예 #1
-         * n이 20 이므로 곱이 20인 순서쌍은 (1, 20), (2, 10), (4, 5), (5, 4), (10, 2), (20, 1)
-         * 이므로 6을 return합니다.
+         * "dfjardstddetckdaccccdegk" 의 4번째, 8번째, 12번째, 16번째, 20번째, 24번째 글자를 합친 "attack"을 return합니다.
          *
          * 입출력 예 #2
-         * n이 100 이므로 곱이 100인 순서쌍은 (1, 100), (2, 50), (4, 25), (5, 20), (10, 10), (20, 5), (25, 4), (50, 2), (100, 1)
-         * 이므로 9를 return합니다.
+         * "pfqallllabwaoclk" 의 2번째, 4번째, 6번째, 8번째, 10번째, 12번째, 14번째, 16번째 글자를 합친 "fallback"을 return합니다.
          *
          */
         class Solution {
-            public int solution(int n) {
-                int answer = 0;
-                int count = 0;
-                for (int i = 1; i <= n; i++) {
-
+            public String solution(String cipher, int code) {
+                String answer = "";
+                for (int i = code - 1; i < cipher.length(); i += code) {
+                    answer += cipher.charAt(i);
                 }
                 System.out.println(answer);
                 return answer;
@@ -32,7 +31,6 @@ public class Test41 {
         }
 
         Solution sol = new Solution();
-
-       sol.solution(20);
+        sol.solution("dfjardstddetckdaccccdegk", 4);
     }
 }
