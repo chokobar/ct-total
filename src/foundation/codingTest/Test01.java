@@ -1,4 +1,4 @@
-package foundation;
+package foundation.codingTest;
 
 public class Test01 {
 
